@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  @apply bg-glass backdrop-blur-md border border-white/10 rounded-xl;
+}
+
+.btn-neon {
+  @apply bg-electric-blue text-black font-bold py-2 px-6 rounded shadow-electric-blue hover:bg-blue-400 transition-all duration-300 transform hover:scale-105;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.7);
+}
