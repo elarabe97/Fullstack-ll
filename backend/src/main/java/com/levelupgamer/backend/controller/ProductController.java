@@ -30,6 +30,7 @@ public class ProductController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @SuppressWarnings("null")
     public Product createProduct(@RequestBody Product product) {
         return productRepository.save(product);
     }

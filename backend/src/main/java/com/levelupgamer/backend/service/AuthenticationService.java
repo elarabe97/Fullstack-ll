@@ -20,6 +20,7 @@ public class AuthenticationService {
         private final JwtService jwtService;
         private final AuthenticationManager authenticationManager;
 
+        @SuppressWarnings("null")
         public AuthDto.AuthResponse register(AuthDto.RegisterRequest request) {
                 if (userRepository.existsByEmail(request.getEmail())) {
                         throw new RuntimeException("Email already exists");

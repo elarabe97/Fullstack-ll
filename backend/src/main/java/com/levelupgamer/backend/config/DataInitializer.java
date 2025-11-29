@@ -19,6 +19,7 @@ public class DataInitializer implements CommandLineRunner {
         private final PasswordEncoder passwordEncoder;
 
         @Override
+        @SuppressWarnings("null")
         public void run(String... args) throws Exception {
                 // Create Admin
                 if (userRepository.findByEmail("admin@levelupgamer.com").isEmpty()) {

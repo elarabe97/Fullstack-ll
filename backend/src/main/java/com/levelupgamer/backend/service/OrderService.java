@@ -21,6 +21,7 @@ public class OrderService {
     private final UserRepository userRepository;
 
     @Transactional
+    @SuppressWarnings("null")
     public Order createOrder(String userEmail, OrderDto.CreateOrderRequest request) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("User not found"));
