@@ -59,7 +59,7 @@ const server = http.createServer((req, res) => {
       if (payload.ref === 'refs/heads/main') {
         console.log('🔄 Recibiendo cambios del repositorio...');
         ejecutarComando(
-          '/home/ubuntu/Level-UP/deploy.sh',
+          '/home/ubuntu/Fullstack-ll/deploy.sh',
           'Despliegue automático',
           (err) => {
             if (err) return;
