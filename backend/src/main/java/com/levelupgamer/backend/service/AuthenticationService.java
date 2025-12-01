@@ -26,7 +26,7 @@ public class AuthenticationService {
                         throw new RuntimeException("Email already exists");
                 }
 
-                boolean isDuoc = request.getEmail().endsWith("@duoc.cl");
+                boolean isDuoc = request.getEmail().endsWith("@duoc.cl") || request.getEmail().endsWith("@duocuc.cl");
 
                 var user = User.builder()
                                 .fullName(request.getFullName())

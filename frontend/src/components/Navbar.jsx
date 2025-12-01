@@ -25,6 +25,7 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-6">
                     <Link to="/catalogo" className="hover:text-electric-blue transition-colors text-sm font-bold tracking-wider">CATÁLOGO</Link>
+                    <Link to="/comunidad" className="hover:text-electric-blue transition-colors text-sm font-bold tracking-wider">COMUNIDAD</Link>
                     <Link to="/eventos" className="hover:text-electric-blue transition-colors text-sm font-bold tracking-wider">EVENTOS</Link>
                     <Link to="/blog" className="hover:text-electric-blue transition-colors text-sm font-bold tracking-wider">BLOG</Link>
 

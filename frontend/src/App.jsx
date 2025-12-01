@@ -9,6 +9,7 @@ import AdminPanel from './pages/AdminPanel';
 import Profile from './pages/Profile';
 import Events from './pages/Events';
 import Blog from './pages/Blog';
+import Community from './pages/Community';
 import { useUser } from './context/UserContext';
 
 import Footer from './components/Footer';
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/catalogo" element={<Catalog />} />
                     <Route path="/eventos" element={<Events />} />
                     <Route path="/blog" element={<Blog />} />
+                    <Route path="/comunidad" element={<Community />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/registro" element={<Register />} />
                     {isLogged && <Route path="/carrito" element={<Cart />} />}

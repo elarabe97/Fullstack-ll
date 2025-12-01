@@ -10,13 +10,28 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         const storedUser = localStorage.getItem('lug_user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            const userData = JSON.parse(storedUser);
+            // Use duocEmail from backend, but fallback to email check for backwards compatibility
+            // Force check on email domains to support @duocuc.cl even if cloud backend returns false
+            const isDuoc = userData.duocEmail === true ||
+                userData.email?.endsWith('@duoc.cl') ||
+                userData.email?.endsWith('@duocuc.cl');
+            const discount = isDuoc ? 0.20 : 0;
+            setUser({
+                ...userData,
+                duocEmail: isDuoc,
+                discount,
+                hasDuoc: isDuoc
+            });
         }
     }, []);
 
     const login = (userData) => {
-        // Calculate derived properties
-        const isDuoc = userData.email.endsWith('@duoc.cl');
+        // Use duocEmail from backend response
+        // Force check on email domains
+        const isDuoc = userData.duocEmail === true ||
+            userData.email.endsWith('@duoc.cl') ||
+            userData.email.endsWith('@duocuc.cl');
         const discount = isDuoc ? 0.20 : 0;
 
         const userWithMeta = {
