@@ -1,0 +1,124 @@
+[2025-12-01 00:29:14] ===== Inicio del despliegue =====
+[2025-12-01 00:29:14] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2025-12-01 00:29:14] Cambios obtenidos exitosamente
+[2025-12-01 00:29:14] Construyendo backend...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.levelupgamer:backend >----------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ backend ---
+[INFO] Deleting /home/ubuntu/Fullstack-ll/backend/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory /home/ubuntu/Fullstack-ll/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ backend ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ backend ---
+[INFO] Building jar: /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.3:repackage (repackage) @ backend ---
+[INFO] Replacing main artifact /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.521 s
+[INFO] Finished at: 2025-12-01T00:29:26Z
+[INFO] ------------------------------------------------------------------------
+[2025-12-01 00:29:26] Backend construido exitosamente
+[2025-12-01 00:29:26] Reiniciando backend...
+[2025-12-01 00:29:27] Backend reiniciado
+[2025-12-01 00:29:27] Construyendo frontend...
+[2025-12-01 00:29:27] Generando build de producción...
+
+> frontend@1.0.0 build
+> vite build
+
+sh: 1: vite: Permission denied
+[2025-12-01 00:29:27] ERROR: Build del frontend falló
+[2025-12-01 00:36:49] ===== Inicio del despliegue =====
+[2025-12-01 00:36:49] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2025-12-01 00:36:49] Construyendo backend...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.levelupgamer:backend >----------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ backend ---
+[INFO] Deleting /home/ubuntu/Fullstack-ll/backend/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory /home/ubuntu/Fullstack-ll/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ backend ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ backend ---
+[INFO] Building jar: /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.3:repackage (repackage) @ backend ---
+[INFO] Replacing main artifact /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.304 s
+[INFO] Finished at: 2025-12-01T00:37:02Z
+[INFO] ------------------------------------------------------------------------
+[2025-12-01 00:37:02] Backend construido exitosamente
+[2025-12-01 00:37:02] Reiniciando backend...
+[2025-12-01 00:37:02] Construyendo frontend...
+[2025-12-01 00:37:02] Generando build con Vite...
+
+> frontend@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 99 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.46 kB │ gzip:  0.30 kB
+dist/assets/logo-DBro2S6q.png   2,442.25 kB
+dist/assets/index-CEEYBoaM.css     22.60 kB │ gzip:  4.56 kB
+dist/assets/index-CNYQchXV.js     231.04 kB │ gzip: 76.04 kB
+✓ built in 7.76s
+[2025-12-01 00:37:12] Frontend construido exitosamente
+[2025-12-01 00:37:12] Copiando frontend a /var/www/html...
+[2025-12-01 00:37:12] Frontend desplegado correctamente
+[2025-12-01 00:37:12] ===== Despliegue completado =====

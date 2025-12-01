@@ -1,25 +1,25 @@
 #!/bin/bash
 
 # ============================================
-# Script de Despliegue Automático - Level-UP
+# Script de Despliegue Automático - Fullstack-ll
 # ============================================
 
-# Configuración
 PROJECT_DIR=~/Fullstack-ll/frontend
 LOG_FILE=~/Fullstack-ll/deploy.log
 BACKEND_JAR=~/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar
 
-# Función para logging
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
 }
 
 log "===== Inicio del despliegue ====="
 
-# Navegar al directorio del proyecto
-cd $PROJECT_DIR || { log "ERROR: No se pudo acceder al directorio del proyecto"; exit 1; }
 
-# Pull de cambios desde GitHub
+# =========================
+# GIT PULL
+# =========================
+cd $PROJECT_DIR || { log "ERROR: No se pudo acceder a frontend"; exit 1; }
+
 log "Obteniendo cambios desde GitHub..."
 git pull origin main >> $LOG_FILE 2>&1
 if [ $? -ne 0 ]; then
@@ -27,15 +27,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-log "Cambios obtenidos exitosamente"
 
 # =========================
-# BACKEND (Spring Boot)
+# BACKEND
 # =========================
 log "Construyendo backend..."
-cd backend
+cd ~/Fullstack-ll/backend || { log "ERROR: No se pudo acceder al backend"; exit 1; }
 
-# Limpiar y construir
 ./mvnw clean package -DskipTests >> $LOG_FILE 2>&1
 if [ $? -ne 0 ]; then
     log "ERROR: Build del backend falló"
@@ -44,44 +42,32 @@ fi
 
 log "Backend construido exitosamente"
 
-# Reiniciar con PM2
 log "Reiniciando backend..."
 pm2 describe levelup-backend > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    # Ya existe, reiniciar
     pm2 restart levelup-backend
-    log "Backend reiniciado"
 else
-    # No existe, crear
-    # Eliminar cualquier proceso duplicado antes de crear el backend
     pm2 delete levelup-backend > /dev/null 2>&1
-    pm2 delete "Level-UP Backend" > /dev/null 2>&1
     pm2 start "java -jar $BACKEND_JAR" --name levelup-backend
-    log "Backend iniciado por primera vez"
 fi
 
+
 # =========================
-# FRONTEND (React)
+# FRONTEND VITE
 # =========================
 log "Construyendo frontend..."
 cd $PROJECT_DIR
 
-# Instalar dependencias (solo si package.json cambió)
+# Instalar dependencias si package.json cambió
 if git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep -q "package.json"; then
     log "package.json cambió, instalando dependencias..."
     npm install >> $LOG_FILE 2>&1
 fi
 
-# Verificar y corregir permisos de la carpeta build si existe
-if [ -d "$PROJECT_DIR/build" ]; then
-    log "Corrigiendo permisos de la carpeta build..."
-    sudo chown -R ubuntu:ubuntu $PROJECT_DIR/build
-    sudo chmod -R 755 $PROJECT_DIR/build
-fi
+# Eliminar build anterior
+rm -rf $PROJECT_DIR/dist
 
-# Build de producción
-rm -rf $PROJECT_DIR/build
-log "Generando build de producción..."
+log "Generando build con Vite..."
 npm run build >> $LOG_FILE 2>&1
 if [ $? -ne 0 ]; then
     log "ERROR: Build del frontend falló"
@@ -90,35 +76,28 @@ fi
 
 log "Frontend construido exitosamente"
 
-# Reiniciar con PM2
-log "Reiniciando frontend..."
-pm2 describe levelup-frontend > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    pm2 restart levelup-frontend
-    log "Frontend reiniciado"
-else
-    pm2 start "npx serve -s build -l 3000" --name levelup-frontend
-    log "Frontend iniciado por primera vez"
-fi
+# Copiar al NGINX ROOT
+log "Copiando frontend a /var/www/html..."
+sudo rm -rf /var/www/html/*
+sudo cp -r $PROJECT_DIR/dist/* /var/www/html/
+sudo chmod -R 755 /var/www/html
+
+log "Frontend desplegado correctamente"
+
 
 # =========================
-# FINALIZACIÓN
+# FINAL
 # =========================
 
-# Guardar configuración PM2
 pm2 save
 
-# Mostrar estado
-log "Estado de los procesos:"
-pm2 status
+log "===== Despliegue completado ====="
 
-log "===== Despliegue completado exitosamente ====="
-log ""
 
-# Mostrar URLs
 echo ""
-echo "✅ Aplicación desplegada exitosamente!"
-echo "📱 Frontend: http://fullstack2-pagina.duckdns.org"
-echo "🔧 Backend API: http://fullstack2-pagina.duckdns.org:8080/api/v1"
-echo "📊 Logs: tail -f $LOG_FILE"
+echo "✅ Deploy exitoso"
+echo "🌐 Frontend: http://fullstack2-pagina.duckdns.org"
+echo "🔧 Backend: http://fullstack2-pagina.duckdns.org:8080/api/v1"
+echo "📄 Log: tail -f $LOG_FILE"
 echo ""
+
