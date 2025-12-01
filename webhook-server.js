@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const PORT = 4000;
 const SECRET = 'Level-Up';
 
-// Verificar la firma del webhook
+// Verificar la firma del webhook usando el JSON real
 function verifySignature(req, body) {
   const signature = `sha256=${crypto
     .createHmac('sha256', SECRET)
@@ -21,10 +21,13 @@ function verifySignature(req, body) {
     return false;
   }
 
-  return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(headerSignature));
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(headerSignature)
+  );
 }
 
-// Ejecutar un comando con logs
+// Ejecutar comandos
 function ejecutarComando(comando, descripcion, callback) {
   console.log(`🔄 Ejecutando: ${descripcion}`);
   exec(comando, (err, stdout, stderr) => {
@@ -39,7 +42,6 @@ function ejecutarComando(comando, descripcion, callback) {
   });
 }
 
-// Crear servidor HTTP
 const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/webhook') {
     let body = '';
@@ -49,13 +51,32 @@ const server = http.createServer((req, res) => {
     });
 
     req.on('end', () => {
-      if (!verifySignature(req, body)) {
+      let jsonBody = body;
+
+      // Detectar cuando GitHub envía application/x-www-form-urlencoded
+      if (req.headers['content-type']?.includes('application/x-www-form-urlencoded')) {
+        const params = new URLSearchParams(body);
+        jsonBody = params.get('payload'); // Extraer el JSON real
+      }
+
+      // Verificar firma usando jsonBody, NO el body completo
+      if (!verifySignature(req, jsonBody)) {
         res.writeHead(403, { 'Content-Type': 'text/plain' });
         res.end('Invalid signature');
         return;
       }
 
-      const payload = JSON.parse(body);
+      let payload;
+      try {
+        payload = JSON.parse(jsonBody);
+      } catch (e) {
+        console.error('❌ Error al parsear el JSON:', e);
+        res.writeHead(400, { 'Content-Type': 'text/plain' });
+        res.end('Invalid JSON');
+        return;
+      }
+
+      // Disparar deploy si fue push a main
       if (payload.ref === 'refs/heads/main') {
         console.log('🔄 Recibiendo cambios del repositorio...');
         ejecutarComando(
