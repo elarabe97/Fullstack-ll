@@ -97,7 +97,7 @@ log "===== Despliegue completado ====="
 echo ""
 echo "✅ Deploy exitoso"
 echo "🌐 Frontend: http://fullstack2-pagina.duckdns.org"
-echo "🔧 Backend: http://fullstack2-pagina.duckdns.org:8080/api/v1"
+echo "🔧 Backend: http://fullstack2-pagina.duckdns.org:8080/api"
 echo "📄 Log: tail -f $LOG_FILE"
 echo ""
 
