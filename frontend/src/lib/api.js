@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://3.238.85.129:8080';
+const API_BASE_URL = 'http://fullstack2-pagina.duckdns.org:8080';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
