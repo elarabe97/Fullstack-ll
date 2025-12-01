@@ -98,6 +98,6 @@ const server = http.createServer((req, res) => {
 });
 
 // Iniciar servidor
-server.listen(PORT, () => {
+server.listen(4000, "0.0.0.0", () => {
   console.log(`🚀 Webhook server running on http://localhost:${PORT}`);
 });
