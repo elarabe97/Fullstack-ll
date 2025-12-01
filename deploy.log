@@ -65,3 +65,170 @@ dist/assets/index-C34Md8rh.js     231.06 kB │ gzip: 76.04 kB
 [2025-12-01 01:03:49] Copiando frontend a /var/www/html...
 [2025-12-01 01:03:49] Frontend desplegado correctamente
 [2025-12-01 01:03:49] ===== Despliegue completado =====
+[2025-12-01 01:32:39] ===== Inicio del despliegue =====
+[2025-12-01 01:32:39] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+   cb7b13e..806c937  main       -> origin/main
+Updating cb7b13e..806c937
+Fast-forward
+ prueba.txt        | 2 +-
+ webhook-server.js | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+[2025-12-01 01:32:39] Construyendo backend...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.levelupgamer:backend >----------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ backend ---
+[INFO] Deleting /home/ubuntu/Fullstack-ll/backend/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory /home/ubuntu/Fullstack-ll/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ backend ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ backend ---
+[INFO] Building jar: /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.3:repackage (repackage) @ backend ---
+[INFO] Replacing main artifact /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.841 s
+[INFO] Finished at: 2025-12-01T01:32:51Z
+[INFO] ------------------------------------------------------------------------
+[2025-12-01 01:32:51] Backend construido exitosamente
+[2025-12-01 01:32:51] Reiniciando backend...
+[2025-12-01 01:32:52] Construyendo frontend...
+[2025-12-01 01:32:52] Generando build con Vite...
+
+> frontend@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 99 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.46 kB │ gzip:  0.30 kB
+dist/assets/logo-DBro2S6q.png   2,442.25 kB
+dist/assets/index-CEEYBoaM.css     22.60 kB │ gzip:  4.56 kB
+dist/assets/index-C34Md8rh.js     231.06 kB │ gzip: 76.04 kB
+✓ built in 6.63s
+[2025-12-01 01:33:01] Frontend construido exitosamente
+[2025-12-01 01:33:01] Copiando frontend a /var/www/html...
+[2025-12-01 01:33:01] Frontend desplegado correctamente
+[2025-12-01 01:33:02] ===== Despliegue completado =====
+[2025-12-01 21:05:06] ===== Inicio del despliegue =====
+[2025-12-01 21:05:06] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+   806c937..445c5f3  main       -> origin/main
+Updating 806c937..445c5f3
+Fast-forward
+ .../backend/service/AuthenticationService.java      |  2 +-
+ frontend/src/App.jsx                                |  2 ++
+ frontend/src/components/Navbar.jsx                  |  1 +
+ frontend/src/context/UserContext.jsx                | 21 ++++++++++++++++++---
+ 4 files changed, 22 insertions(+), 4 deletions(-)
+[2025-12-01 21:05:07] Construyendo backend...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.levelupgamer:backend >----------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ backend ---
+[INFO] Deleting /home/ubuntu/Fullstack-ll/backend/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory /home/ubuntu/Fullstack-ll/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ backend ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ backend ---
+[INFO] Building jar: /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.3:repackage (repackage) @ backend ---
+[INFO] Replacing main artifact /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ubuntu/Fullstack-ll/backend/target/backend-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.584 s
+[INFO] Finished at: 2025-12-01T21:05:18Z
+[INFO] ------------------------------------------------------------------------
+[2025-12-01 21:05:18] Backend construido exitosamente
+[2025-12-01 21:05:18] Reiniciando backend...
+[2025-12-01 21:05:19] Construyendo frontend...
+[2025-12-01 21:05:19] Generando build con Vite...
+
+> frontend@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 100 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.46 kB │ gzip:  0.30 kB
+dist/assets/logo-DBro2S6q.png   2,442.25 kB
+dist/assets/index-CEEYBoaM.css     22.60 kB │ gzip:  4.56 kB
+dist/assets/index-b_2V1xsI.js     234.48 kB │ gzip: 76.79 kB
+✓ built in 5.99s
+[2025-12-01 21:05:27] Frontend construido exitosamente
+[2025-12-01 21:05:27] Copiando frontend a /var/www/html...
+[2025-12-01 21:05:27] Frontend desplegado correctamente
+[2025-12-01 21:05:27] ===== Despliegue completado =====
+[2025-12-01 22:08:42] ===== Inicio del despliegue =====
+[2025-12-01 22:08:42] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+   445c5f3..04d4430  main       -> origin/main
+error: Your local changes to the following files would be overwritten by merge:
+	backend/target/classes/com/levelupgamer/backend/service/AuthenticationService.class
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 445c5f3..04d4430
+[2025-12-01 22:08:43] ERROR: Git pull falló
+[2025-12-01 23:18:26] ===== Inicio del despliegue =====
+[2025-12-01 23:18:26] Obteniendo cambios desde GitHub...
+From https://github.com/elarabe97/Fullstack-ll
+ * branch            main       -> FETCH_HEAD
+error: Your local changes to the following files would be overwritten by merge:
+	backend/target/classes/com/levelupgamer/backend/service/AuthenticationService.class
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 445c5f3..04d4430
+[2025-12-01 23:18:26] ERROR: Git pull falló
