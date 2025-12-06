@@ -232,3 +232,17 @@ Please commit your changes or stash them before you merge.
 Aborting
 Updating 445c5f3..04d4430
 [2025-12-01 23:18:26] ERROR: Git pull falló
+[2025-12-06 00:25:46] ===== Inicio del despliegue =====
+[2025-12-06 00:25:46] Obteniendo cambios desde GitHub...
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+[2025-12-06 00:25:46] ERROR: Git pull falló
+[2025-12-06 00:25:59] ===== Inicio del despliegue =====
+[2025-12-06 00:25:59] Obteniendo cambios desde GitHub...
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+[2025-12-06 00:25:59] ERROR: Git pull falló
