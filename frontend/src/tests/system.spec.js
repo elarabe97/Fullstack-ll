@@ -23,8 +23,8 @@ describe('Sistema de Tienda Online - Pruebas Unitarias', function () {
 
     // 3. Prueba de Configuración de API
     it('La URL base de la API debe estar definida', function () {
-        const API_URL = "http://3.238.85.129:8080";
-        expect(API_URL).toContain("3.238.85.129");
+        const API_URL = "http://13.222.13.70:8080";
+        expect(API_URL).toContain("13.222.13.70");
         expect(API_URL).toMatch(/http/);
     });
 });
