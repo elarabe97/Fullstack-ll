@@ -256,6 +256,7 @@ export default function AdminPanel() {
                             <th className="p-4">CÓDIGO</th>
                             <th className="p-4">NOMBRE</th>
                             <th className="p-4">PRECIO</th>
+                            <th className="p-4">PRECIO + IVA</th>
                             <th className="p-4">STOCK</th>
                             <th className="p-4">ACCIONES</th>
                         </tr>
@@ -266,6 +267,7 @@ export default function AdminPanel() {
                                 <td className="p-4 font-mono text-sm">{p.code}</td>
                                 <td className="p-4">{p.name}</td>
                                 <td className="p-4">${p.price}</td>
+                                <td className="p-4">${Math.round(p.price * 1.19)}</td>
                                 <td className="p-4">{p.stock}</td>
                                 <td className="p-4 flex gap-2">
                                     <button

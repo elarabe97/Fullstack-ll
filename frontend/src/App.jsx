@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Events from './pages/Events';
 import Blog from './pages/Blog';
 import Community from './pages/Community';
+import ProductDetails from './pages/ProductDetails';
 import { useUser } from './context/UserContext';
 
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Catalog />} />
                     <Route path="/catalogo" element={<Catalog />} />
+                    <Route path="/product/:code" element={<ProductDetails />} />
                     <Route path="/eventos" element={<Events />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/comunidad" element={<Community />} />

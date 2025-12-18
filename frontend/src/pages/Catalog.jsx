@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../lib/api';
 import { useCart } from '../context/CartContext';
 
@@ -42,13 +43,15 @@ export default function Catalog() {
                     {products.map(product => (
                         <div key={product.code} className="glass-panel p-4 flex flex-col group hover:border-electric-blue/50 transition-all duration-300">
                             <div className="relative overflow-hidden rounded-lg mb-4 h-48">
-                                <img
-                                    src={product.img}
-                                    alt={product.name}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                />
+                                <Link to={`/product/${product.code}`}>
+                                    <img
+                                        src={product.img}
+                                        alt={product.name}
+                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+                                    />
+                                </Link>
                                 {product.stock <= 0 && (
-                                    <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-black/70 flex items-center justify-center pointer-events-none">
                                         <span className="text-red-500 font-bold border-2 border-red-500 px-4 py-1 rounded rotate-12">AGOTADO</span>
                                     </div>
                                 )}
@@ -56,7 +59,9 @@ export default function Catalog() {
 
                             <div className="flex-1">
                                 <div className="text-xs text-electric-blue mb-1 font-bold uppercase tracking-wider">{product.category}</div>
-                                <h3 className="text-lg font-bold mb-2 group-hover:text-neon-green transition-colors">{product.name}</h3>
+                                <h3 className="text-lg font-bold mb-2 group-hover:text-neon-green transition-colors">
+                                    <Link to={`/product/${product.code}`}>{product.name}</Link>
+                                </h3>
                             </div>
 
                             <div className="mt-4">
